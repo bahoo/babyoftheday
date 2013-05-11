@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}{{ photo.title }} | {{ block.super }}{% endblock %}
+{% block body %}
+
+    <div class="sidebar">
+        {% if not DOMAIN_NAME in request.META.HTTP_REFERER %}
+        <div class="ohai">
+            <p><b>Welcome, Internet Wayfarer!</b></p>
+            <p>You are checking out a photo on <strong>{{ CHILD_NAME }} of the Day</strong>,
+                a daily photo site that chronicles the life of our awesome baby
+                {{ CHILD_NAME }}. Thanks for dropping in!</p>
+        </div>
+        {% endif %}
+        
+        <div class="deets">
+            <p>This photo was posted on {{ photo.date|date:"l, F jS, Y \a\t g:ia" }}.</p>
+        </div>
+        
+        <div class="navigate">
+            {% if photo.get_previous_by_date %}<p><b>Prev:</b> <a href="{{ photo.get_previous_by_date.get_absolute_url }}">{{ photo.get_previous_by_date.title }}</a></p>{% endif %}
+            {% if photo.get_next_by_date %}<p><b>Next:</b> <a href="{{ photo.get_next_by_date.get_absolute_url }}">{{ photo.get_next_by_date.title }}</a></p>{% endif %}
+        </div>
+    </div>
+
+    {% include "photos/detail_snippet.html" %}
+        
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Today | {{ block.super }}{% endblock %}
+{% block addl_head %}
+<script src="/static/jquery-1.4.4-min.js"></script>
+{% endblock %}
+{% block body %}
+
+    <div class="sidebar">
+        <h3>What's all this noise?</h3>
+        <p><strong>{{ CHILD_NAME }} of the Day</strong> is a collection of daily photos.</p>
+        
+        
+        <h3>More recently:</h3>
+        <ul class="slivers clearfix">
+        {% for photo in photo_list|slice:"1:" %}
+            <li><a href="{{ photo.get_absolute_url }}" title="{{ photo.title }}"><img src="{{ photo.photo.url_125x125 }}" /></a></li>
+        {% endfor %}
+        </ul>
+        <p class="more"><a href="{% url "photo_archive_index" %}">More...</a></p>
+    </div>
+
+    
+    
+    {% with photo_list|first as photo %}
+    
+        <p>{{ photo.date|date:"l, F jS, Y" }}</p>
+        
+        {% include "photos/detail_snippet.html" %}
+        
+    {% endwith %}
+
+
+{% endblock %}

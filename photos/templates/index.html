@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block body %}
+    
+    {% for photo in queryset %}
+        <p>{{ photo.date|date:"l, F jS, Y" }}</p>
+        <h1>{{ photo.title }}</h1>
+        <img src="{{ photo.photo.url_600x450 }}" />
+        {{ photo.caption|linebreaks }}
+        <ul class="notes">
+            <li>Posted {{ photo.date|timesince }} ago.</li>
+            <li><a href="{{ photo.photo.url }}">Fullsize</a></li>
+            <li><a href="{{ photo.get_absolute_url }}">Permalink</a></li>
+        </ul>
+        <iframe src="http://www.facebook.com/plugins/like.php?href={{ photo.photo.url|urlencode }}&amp;layout=standard&amp;show_faces=true&amp;width=450&amp;action=like&amp;colorscheme=light&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:80px;" allowTransparency="true"></iframe>
+    {% endfor %}
+        
+{% endblock %}

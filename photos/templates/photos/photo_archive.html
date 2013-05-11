@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Archives | {{ block.super }}{% endblock %}
+{% block body %}
+
+    <div class="sidebar">
+        <h2>Time Travel!:</h2>
+        
+        {% regroup months by year as year_list %}
+        <ul class="timeTravel">
+        {% for year in year_list reversed %}
+            <li><a href="{% url "photo_year_archive" year.grouper %}" class="year">{{ year.grouper }}</a>
+            <ul class="months">
+            {% for month in year.list %}
+                <li><a href="{% url "photo_month_archive" month|date:"Y" month|date:"b" %}">{{ month|date:"F" }}</a></li>
+            {% endfor %}
+            </ul></li>
+        {% endfor %}
+        </ul>
+        
+    </div>
+    
+    <h2>Showing the latest 15 photos:</h2>
+    
+    {% for photo in photo %}
+       
+        <p>{{ photo.date|date:"l, F jS, Y" }}</p>
+        {% include "photos/detail_snippet.html" %}
+        
+    {% endfor %}
+        
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}{{ month|date:"F Y" }} Archives | {{ block.super }}{% endblock %}
+{% block body %}
+    
+    <ul class="crumbs">
+        <li class="home"><a href="/">Home</a></li>
+        <li><a href="{% url "photo_archive_index" %}">Archives</a></li>
+        <li><a href="{% url "photo_year_archive" month|date:"Y" %}">{{ month|date:"Y" }}</a></li>
+        <li><a href="{% url "photo_month_archive" month|date:"Y" month|date:"b" %}">{{ month|date:"F" }}</a></li>
+    </ul>
+
+    <h2>Browsing {{ month|date:"F Y" }}</h2>
+    
+    <ul class="squares clearfix">
+    {% for photo in photo_list reversed %}
+       {% include "photos/square_snippet.html" %}
+    {% endfor %}
+    </ul>
+    
+    
+{% endblock %}

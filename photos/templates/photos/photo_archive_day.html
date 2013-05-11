@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}{{ day|date:"b d Y"|title }} Archives | {{ block.super }}{% endblock %}
+{% block body %}
+
+    <ul class="crumbs">
+        <li class="home"><a href="/">Home</a></li>
+        <li><a href="{% url "photo_archive_index" %}">Archives</a></li>
+        <li><a href="{% url "photo_year_archive" day|date:"Y" %}">{{ day|date:"Y" }}</a></li>
+        <li><a href="{% url "photo_month_archive" day|date:"Y" day|date:"b" %}">{{ day|date:"F" }}</a></li>
+        <li><a href="{% url "photo_day_archive" day|date:"Y" day|date:"b" day|date:"j" %}">{{ day|date:"jS" }}</a></li>
+    </ul>
+
+    <p>{{ day|date:"l, F jS, Y" }}</p>
+
+    {% for photo in photo_list %}
+        
+        {% include "photos/detail_snippet.html" %}
+        
+    {% endfor %}
+        
+{% endblock %}
