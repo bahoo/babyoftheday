@@ -1,4 +1,3 @@
-# from django.views.generic.base import View
 from django.views.generic.dates import ArchiveIndexView, YearArchiveView, MonthArchiveView, DayArchiveView, DateDetailView
 from django.shortcuts import render
 from photos.models import Photo
