@@ -1,0 +1,9 @@
+{% if is_paginated %}
+        {% if page_obj.has_previous %}
+            <a href="{% url "photo_archive_index" page_obj.previous_page_number %}">&larr; Previous</a>
+        {% endif %}
+        Page {{ page_obj.number }}
+        {% if page_obj.has_next %}
+            <a href="{% url "photo_archive_index" page_obj.next_page_number %}">Next &rarr;</a>
+        {% endif %}
+    {% endif %}

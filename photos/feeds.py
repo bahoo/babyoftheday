@@ -1,7 +1,7 @@
 from django.contrib.syndication.views import Feed
-from photos.models import Photo
 from django.utils.safestring import mark_safe
 from django.conf import settings
+from .models import Photo
 
 
 class LatestPhotos(Feed):

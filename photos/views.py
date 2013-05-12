@@ -1,28 +1,35 @@
-from django.shortcuts import render_to_response
-from photos.models import *
-# from django.contrib import messages
-# from django.template import RequestContext
-# from django.http import HttpResponseRedirect
-# from twitter_app.views import tweet_photo
+# from django.views.generic.base import View
+from django.views.generic.dates import ArchiveIndexView, YearArchiveView, MonthArchiveView, DayArchiveView, DateDetailView
+from django.shortcuts import render
+from photos.models import Photo
+
+
+class PhotoMixin(object):
+    date_field = "date"
+    model = Photo
+
+
+class PhotoArchiveIndexView(PhotoMixin, ArchiveIndexView):
+    date_list_period = "month"
+    paginate_by = 20
+
+
+class PhotoYearArchiveView(PhotoMixin, YearArchiveView):
+    make_object_list = True
+
+
+class PhotoMonthArchiveView(PhotoMixin, MonthArchiveView):
+    pass
+
+
+class PhotoDayArchiveView(PhotoMixin, DayArchiveView):
+    pass
+
+
+class PhotoDateDetailView(PhotoMixin, DateDetailView):
+    pass
 
 
 def home(request, *args, **kwargs):
     photo_list = Photo.objects.all()[0:9]
-    return render_to_response('photos/home.html', {'photo_list': photo_list})
-
-"""
-def get_cookied(request, *args, **kwargs):
-
-    next = request.POST.get('next', '/')
-
-    if request.method == 'POST':
-        if request.POST.get('password', '') == PASSWORD:
-            request.session['password'] = request.POST.get('password')
-            request.session.set_exiry(15778463)
-            return HttpResponseRedirect(next)
-
-        else:
-            messages.add_message(request, messages.ERROR, "You've entered a password, but it's not correct.")
-
-    return render_to_response('getcookied.html', {'next': next}, context_instance=RequestContext(request))
-"""
+    return render(request, 'photos/home.html', {'photo_list': photo_list})

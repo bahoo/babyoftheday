@@ -28,7 +28,7 @@ class Photo(models.Model):
                 'year': self.date.strftime('%Y'),
                 'month': self.date.strftime('%b').lower(),
                 'day': self.date.strftime('%d'),
-                'object_id': self.id})
+                'pk': self.id})
     get_absolute_url = permalink(get_absolute_url)
 
     def get_full_url(self):

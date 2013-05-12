@@ -4,28 +4,37 @@
 
     <div class="sidebar">
         <h2>Time Travel!:</h2>
-        
-        {% regroup months by year as year_list %}
         <ul class="timeTravel">
-        {% for year in year_list reversed %}
-            <li><a href="{% url "photo_year_archive" year.grouper %}" class="year">{{ year.grouper }}</a>
-            <ul class="months">
-            {% for month in year.list %}
-                <li><a href="{% url "photo_month_archive" month|date:"Y" month|date:"b" %}">{{ month|date:"F" }}</a></li>
-            {% endfor %}
-            </ul></li>
+        {% for month in date_list %}
+            {% ifchanged month.year %}
+                {% if not forloop.first %}
+                </ul>
+                {% endif %}
+                <li><a href="{% url "photo_year_archive" month.year %}" class="year">{{ month|date:"Y" }}</a>
+                <ul class="months">
+                    <li><a href="{% url "photo_month_archive" month.year month|date:"b" %}">{{ month|date:"F" }}</a></li>
+            {% else %}
+                <li><a href="{% url "photo_month_archive" month.year month|date:"b" %}">{{ month|date:"F" }}</a></li>
+            {% endifchanged %}
         {% endfor %}
         </ul>
         
     </div>
     
-    <h2>Showing the latest 15 photos:</h2>
+    <h2>Showing the latest {{ latest|length }} photos:</h2>
+
+    {% if is_paginated and page_obj.number > 1 %}
+        {% include "photos/pagination.html" %}
+    {% endif %}
+
     
-    {% for photo in photo %}
+    {% for photo in latest %}
        
         <p>{{ photo.date|date:"l, F jS, Y" }}</p>
         {% include "photos/detail_snippet.html" %}
         
     {% endfor %}
+
+    {% include "photos/pagination.html" %}
         
 {% endblock %}
