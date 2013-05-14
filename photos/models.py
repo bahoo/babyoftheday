@@ -1,5 +1,5 @@
 from django.db import models
-from django_thumbs.db.models import ImageWithThumbsField
+from thumbs import ImageWithThumbsField
 from django.db.models import permalink
 from datetime import datetime
 from django.contrib.sites.models import Site

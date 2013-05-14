@@ -1,2 +1,4 @@
-PIL
-django_thumbs
+Pillow
+-e git://github.com/vannoppen/django-thumbs.git#egg=django-thumbs
+boto
+django-storages
