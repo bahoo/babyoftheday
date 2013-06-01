@@ -13,6 +13,6 @@ Just run:
 Not 100% functional just yet :D but close. Pull requests welcome.
 
 ### TODO
-Better 404/etc templates
-Keep ripping Max of the Day out
-Better handle orientation on photos during upload
+ - Better 404/etc templates
+ - Keep ripping Max of the Day out
+ - Better handle orientation on photos during upload
