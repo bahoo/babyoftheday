@@ -1,6 +1,7 @@
 import os
 
-from django.core.handlers.wsgi import WSGIHandler
+from django.core.wsgi import get_wsgi_application
+from dj_static import Cling
 
 os.environ['DJANGO_SETTINGS_MODULE'] = 'settings.production'
-application = WSGIHandler()
+application = Cling(get_wsgi_application())

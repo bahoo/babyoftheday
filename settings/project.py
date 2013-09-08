@@ -1,9 +1,4 @@
-CHILD_NAME = "Mile"
-AUTHOR_NAME = "Lauren Berry"
-
-ADMIN_USERNAME = "admin"
-ADMIN_EMAIL = "culvejc@gmail.com"
-
-DOMAIN_NAME = "milesoftheday.com"
-
-PROJECT_ROOT = "/Users/jon/sites/{{ project_name }}"
+# dummy values to be filled in by `personalize` manage.py command.
+ADMIN_USERNAME = ""
+ADMIN_EMAIL = ""
+PROJECT_ROOT = ""

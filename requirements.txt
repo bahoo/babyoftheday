@@ -1,4 +1,3 @@
 Pillow
--e git://github.com/vannoppen/django-thumbs.git#egg=django-thumbs
 boto
-django-storages
+dj-static

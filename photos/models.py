@@ -6,9 +6,6 @@ from django.contrib.sites.models import Site
 
 
 class Photo(models.Model):
-    # photo = models.ImageField(upload_to='photos')
-    # web = models.ImageField(upload_to='photos')
-    # thumb = models.ImageField(upload_to='photos')
     photo = ImageWithThumbsField(upload_to='images', sizes=((125, 125), (600, 450),))
     date = models.DateTimeField()
     title = models.CharField(max_length=50, default='Untitled')

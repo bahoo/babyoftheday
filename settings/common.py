@@ -3,10 +3,8 @@ from .project import *
 
 
 # for storing photos.
-DEFAULT_FILE_STORAGE = 'storages.backends.s3.S3Storage'
-AWS_ACCESS_KEY_ID = ''
-AWS_SECRET_ACCESS_KEY = ''
-AWS_STORAGE_BUCKET_NAME = '{{ project_name }}'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+AWS_QUERYSTRING_AUTH = False
 
 # a few debug bits.
 DEBUG = True
@@ -15,6 +13,8 @@ ADMINS = (
     (ADMIN_USERNAME, ADMIN_EMAIL),
 )
 MANAGERS = ADMINS
+
+PROJECT_ROOT = lambda x: os.path.join(os.path.abspath(os.path.dirname(__file__) + '/../'), x)
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -41,7 +41,7 @@ USE_L10N = True
 
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
-MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media/')
+MEDIA_ROOT = PROJECT_ROOT('media/')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
@@ -52,7 +52,7 @@ MEDIA_URL = ''
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles/')
+STATIC_ROOT = PROJECT_ROOT('staticfiles')
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
@@ -60,7 +60,7 @@ STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-    os.path.join(PROJECT_ROOT, 'static/'),
+    PROJECT_ROOT('static/'),
 )
 
 # List of finder classes that know how to find static files in
@@ -102,7 +102,7 @@ ROOT_URLCONF = 'urls'
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
-    os.path.join(PROJECT_ROOT, 'templates/'),
+    PROJECT_ROOT('templates/'),
 )
 
 INSTALLED_APPS = (
