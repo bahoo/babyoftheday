@@ -3,7 +3,7 @@
 django-thumbs on-the-fly
 https://github.com/madmw/django-thumbs
 
-A fork of django-thumbs [http://code.google.com/p/django-thumbs/] by Antonio Melé [http://django.es].
+A fork of django-thumbs [http://code.google.com/p/django-thumbs/] by Antonio Mele [http://django.es].
 
 """
 import cStringIO
