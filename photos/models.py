@@ -1,14 +1,22 @@
-from django.db import models
+import os
 from thumbs import ImageWithThumbsField
-from django.db.models import permalink
 from datetime import datetime
 from django.contrib.sites.models import Site
+from django.db import models
+from django.db.models import permalink
+from django.template.defaultfilters import slugify
 
+
+def image_filename(instance, filename):
+    base_dir = 'images/'
+    base_name, extension = os.path.splitext(filename)
+    title = instance.date.strftime('%Y%m%d') + '-' + slugify(instance.title)
+    return "%s%s%s" % (base_dir, title, extension)
 
 class Photo(models.Model):
-    photo = ImageWithThumbsField(upload_to='images', sizes=((125, 125), (600, 450),))
-    date = models.DateTimeField()
-    title = models.CharField(max_length=50, default='Untitled')
+    photo = ImageWithThumbsField(upload_to=image_filename, sizes=((125, 125), (600, 450),))
+    date = models.DateTimeField(auto_now_add=True)
+    title = models.CharField(max_length=50)
     caption = models.CharField(max_length=140, blank=True)
 
     def save(self, **kwargs):

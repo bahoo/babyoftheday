@@ -5,6 +5,7 @@ from .project import *
 # for storing photos.
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 AWS_QUERYSTRING_AUTH = False
+THUMBNAIL_CROP = 'shrink'
 
 # a few debug bits.
 DEBUG = True

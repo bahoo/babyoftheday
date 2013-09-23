@@ -1,5 +1,7 @@
 import os
 from django.core.management.base import BaseCommand
+from boto.s3.connection import S3Connection
+from django.contrib.sites.models import Site
 
 
 class Command(BaseCommand):
@@ -30,3 +32,13 @@ class Command(BaseCommand):
                                 "AWS_STORAGE_BUCKET_NAME = '%s'" % domain_name])
 
         print "\n\nproject.py successfully output to settings directory."
+
+        try:
+            connection = S3Connection(aws_access_key_id, aws_secret_access_key)
+            bucket = connection.create_bucket(domain_name)
+            bucket.set_acl('public-read')
+            print "\nS3 bucket '%s' created successfully." % domain_name
+        except:
+            pass
+
+        site = Site.create(domain=domain_name, name=domain_name)

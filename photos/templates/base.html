@@ -3,22 +3,22 @@
 <head>
     <title>{% block title %}{{ CHILD_NAME }} of the Day{% endblock %}</title>
     <link rel="icon" type="image/png" href="/static/img/favicon.png" />
-    <link rel="alternate" type="application/rss+xml" title="" href="/feed/" /> 
+    <link rel="alternate" type="application/rss+xml" title="" href="/feed/" />
     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;" />
     {% load static from staticfiles %}
     <link rel="stylesheet" href="{% static "base.css" %}" />
     <script>
-    
+
         var _gaq = _gaq || [];
         _gaq.push(['_setAccount', 'UA-XXXXXXX-X']);
         _gaq.push(['_trackPageview']);
-        
+
         (function() {
             var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
             ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
         })();
-    
+
     </script>
     {% block addl_head %}{% endblock %}
 </head>
@@ -27,23 +27,21 @@
         <div class="headerWrap">
             <div class="header">
                 <h1 class="logo"><a href="{% url "home" %}">{{ CHILD_NAME }} of the Day</a></h1>
-                
+
                 <ul class="nav">
                     <li><a href="{% url "home" %}">Today</a></li>
                     <li><a href="{% url "photo_archive_index" %}">Archives</a></li>
                 </ul>
-                
-                <img src="/static/img/reptar_24.png" class="reptar" alt="Baby Reptar" title="Baby Reptar says 'RAWR.'" />
             </div>
         </div>
         <div class="bodyWrap">
             <div class="body">
                 {% block body %}
-                
+
                 {% endblock %}
             </div>
             <small class="footer">
-                {{ CHILD_NAME }} of the Day is &copy; 2010&#8211;{% now "Y" %} {{ AUTHOR_NAME }}. <a href="/feed/">RSS</a>
+                {{ CHILD_NAME }} of the Day is &copy; {% now "Y" %} {{ AUTHOR_NAME }}. <a href="/feed/">RSS</a>
             </small>
         </div>
     </div>

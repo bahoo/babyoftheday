@@ -1,5 +1,5 @@
         body{ background: #dbdbdb url(/static/img/white.gif) scroll center top repeat-y; margin: 0; padding: 0; color: #000; font-family: sans-serif; }
-        
+
         .wrap{ padding: 2em 0 1em; }
         .headerWrap{ background: #19283D; color: #fff; margin: 0 0 2em; }
         .header{ background: #1D2F47; position: relative; min-height: 110px; padding: 1px 0; width: 792px; }
@@ -8,12 +8,12 @@
         .logo{ margin: 0.375em 0.75em; padding: 0; font-family: "octin-prison-1","octin-prison-2"; font-size: 2.5em; }
         .logo a{ color: #fff; text-decoration: none; }
         .logo a:hover{ color: #ddd; }
-        
-        
+
+
         h2{ font-family: "aviano-slab-1","aviano-slab-2"; text-transform: lowercase; }
-        
+
         .body p{ line-height: 1.6em; font-size: 0.866em; }
-        
+
         .bodyWrap a:link{ color: #3588BC; }
         .bodyWrap a:visited{ color: #74BC35; }
         .bodyWrap a:hover, .bodyWrap a:active{ color: #E9A334 }
@@ -23,19 +23,19 @@
         .nav a{ font-family: "aviano-slab-1","aviano-slab-2"; text-decoration: none; color: #fff; text-transform: uppercase; }
         .nav a:hover{ text-decoration: underline; }
         .reptar{ position: absolute; right: 6px; top: -20px; }
-    
+
         .block{ list-style: none; padding: 0; margin: 1em 0; }
         .block li{  }
-        
+
         .inline{ display: inline; margin: 0; padding: 0; }
         .inline li{ display: inline; }
-        
+
         .fb-like{ display: block; clear: left; margin-top: 1em;}
-        
+
         .notes{ }
 
 	.photo-detail{ max-width: 450px; }
-        
+
         .squares{ list-style: none; margin: 1em -0.25em; padding: 0; }
         .squares li{ margin: 0.25em; float: left; position: relative; width: 125px; height: 125px; overflow: hidden; }
         .squares a{ text-decoration: none; width: 125px; height: 125px; overflow: hidden; float: left;}
@@ -44,99 +44,99 @@
         .squares li:hover p{ -moz-opacity: 1; -webkit-opacity: 1; -o-opacity: 1; opacity: 1; -webkit-timing-function: ease-out; -moz-timing-function: ease-out;}
         .squares li:hover img{ -moz-opacity: 0.2; -webkit-opacity: 0.2; -o-opacity: 0.2; opacity: 0.2; }
         .squares span{ position: absolute; font-size: 0.833em; width: 2em; height: 2em; line-height: 2em; text-align: center; right: 0; bottom: 0; overflow: hidden; background: rgba(0,0,0,.25); color: #fff; }
-        
+
         .yearSquares{ width: 524px; }
-        
+
         .donate{ border: 3px #1D2F47 solid; background: #B5DFAF; padding: 1em 1.25em; font-weight: bold; cursor: pointer; text-align: center; font-size: 2em; -webkit-border-radius: 6px; -moz-border-radius: 6px; border-radius: 6px; }
-        
+
         .sidebar{ float: right; width: 188px; }
         .sidebar h3{ clear: both; amrgin-top: 1.5em; }
-                
+
         .slivers{ margin: 0 -0.5em 0 0; padding: 0; }
         .slivers li{ position: relative; margin: 0 0.5em 0.5em 0; float: left; width: 40px; list-style: none; overflow: hidden; }
         .slivers a{ padding-top: 125px; display: block; text-decoration: none; font-size: 0.75em; text-align: right; }
         .slivers img{ position: absolute; top: 0; left: -40px; -webkit-transition: left 2s ease-in; }
-        
+
         .more{ clear: both; margin-top: 0; font-size: 0.813em;}
-        
+
         .slivers a:hover img{ left: -85px; -webkit-transition-timing-function: ease-out; }
-        
+
         .notYet{ display: block; width: 100%; padding: 1em; margin: 1em -1em; border: outset 2px #333 solid; background: #F8D29B; font-size: 0.833em; text-decoration: none; }
-        
+
         .crumbs{ margin: 1em 0; padding: 0; }
         .crumbs li{ display: inline; list-style: none; margin: 0; padding: 0; }
         .crumbs li:after{ content: ' \203a'; }
         .crumbs li:last-child:after{ content: ''; }
         .crumbs a{ text-decoration: none; color: #00; }
-        
+
         .timeTravel{ margin: 0; padding: 0; list-style: none; }
         .timeTravel a.year{ font-family: "aviano-slab-1","aviano-slab-2"; text-transform: lowercase; color: #000; font-size: 1.2em; text-decoration: none; }
-        
+
         .timeTravel .months{ margin: 0.25em 0 2em 0; padding: 0 0 0 1.5em; list-style: square; }
-                
-        .footer{ width: 682px; font-size: 0.625em; background: url(/static/img/baby-reptar.png) scroll 30px center no-repeat; height: 80px; line-height: 80px; padding-left: 110px; display: block; clear: both; margin: 5em auto 1em auto; padding-top: 1.5em; border-top: 3px #ccc solid;}
-        
+
+        .footer{ width: 682px; font-size: 0.625em; height: 80px; line-height: 80px; display: block; clear: both; margin: 5em auto 1em auto; padding-top: 1.5em; border-top: 3px #ccc solid;}
+
         .like-box{ margin-bottom: 2em; }
-        
+
         .ohai{ background: #FFDF6E; padding: 0.5em 1.5em; -moz-transform: rotate(-1.5deg); -o-transform: rotate(-1.5deg); -webkit-transform: rotate(-1.5deg); -ms-transform: rotate(-1.5deg); transform: rotate(-1.5deg); zoom: 1; -webkit-backface-visibility: hidden; }
 
         .whoatherechief{ background: #ffe0ca;}
-        
+
         .date{ font-family: Georgia, serif; font-style: italic; }
-        
+
         @media screen and (max-width: 320px) {
-        
+
             body{ background: #dbdbdb;
                 width: 100%; }
-            
+
             .headerWrap{ margin-bottom: 0.5em; }
-            
+
             .header, .body, .footer, .wrap{ width: auto; }
-            
+
             .header{ min-height: 5.25em; }
-        
+
             .wrap{ padding: 0.25em 0;
                     margin: 0 5px;
                     background: #fff; }
-                    
+
             .body{ padding: 0 1.3125em; }
-            
+
             .body img{ max-width: 100%; }
-            
+
             .sidebar{ display: none; }
-            
+
             .body h1{ font-size: 1.5em;
                     margin: 0.5em 0; }
-        
+
             .nav li:first-child,
             .nav li:last-child{
                     display: none; }
-            
+
             h1.logo{ font-size: 1.5em;
                     margin-bottom: 0.25em; }
-            
+
             .header{ min-height: 4.5em;
                     overflow: hidden;
                     position: relative; }
-            
+
             .nav{ margin: 0 1.125em; }
-            
+
             .reptar{ width: auto;
                     right: -26.875%;
                     top: -7px; }
-                    
+
             .fb-like{ width: 100% !important;
                     height: 40px; }
-                    
+
             .footer{ margin-top: 2em;
                     background-position: 18px 18px;
                     padding-left: 100px;
                     line-height: 1.6em;
                     padding-top: 18px;
                     padding-right: 18px; }
-          
+
         }
-        
+
         .clearfix:after {
         	visibility: hidden;
         	display: block;
